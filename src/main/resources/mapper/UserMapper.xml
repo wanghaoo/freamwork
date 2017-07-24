@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.humandaily.www.mapper.UserMapper">
+	<!--<cache /> 这个标签默认缓存。OH NO -->
+	
+	<select id="getUserList" resultType="com.humandaily.www.web.login.Po.User">
+        select t.vc_user_name username, t.vc_password password from sys_user t
+	</select>
+    <select id="getUserByUserName" parameterType="String" resultType="com.humandaily.www.web.login.Po.User">
+      SELECT
+        t.l_user_id userId,
+        t.vc_user_name username,
+        t.vc_password password,
+        t.l_leave salt
+    FROM
+        sys_user t
+    WHERE
+        t.vc_user_name = #username#
+    </select>
+</mapper>
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.humandaily.www.mapper.RegisteredMapper">
+	<!--<cache /> 这个标签默认缓存。OH NO -->
+	<insert id="doRegiestered" parameterType="com.humandaily.www.web.registered.Po.Registered">
+        insert into sys_user (vc_name, vc_user_name, vc_password, l_leave) values (#username#, #username#, #password#, #salt#);
+    </insert>
+</mapper>
+
